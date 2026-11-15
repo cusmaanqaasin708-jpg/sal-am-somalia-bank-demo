@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salaam Somalia Bank - DEMO</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#f1f5f9;
+ color:#172033;
+}
+header{
+ background:#073b35;
+ color:white;
+ padding:22px;
+}
+header h2{margin:0 0 8px}
+.demo{
+ background:#fff1c2;
+ color:#785400;
+ text-align:center;
+ padding:10px;
+ font-weight:bold;
+}
+.container{max-width:850px;margin:25px auto;padding:16px}
+.card{
+ background:white;
+ padding:22px;
+ border-radius:16px;
+ margin-bottom:18px;
+ box-shadow:0 3px 15px #0000000d;
+}
+input{
+ width:100%;
+ padding:14px;
+ margin:9px 0;
+ border:1px solid #ccd5df;
+ border-radius:9px;
+ font-size:16px;
+}
+button{
+ background:#087b61;
+ color:white;
+ border:0;
+ padding:13px 18px;
+ border-radius:9px;
+ font-size:15px;
+ cursor:pointer;
+}
+button:hover{background:#075d4b}
+.balance{
+ background:#073b35;
+ color:white;
+ border-radius:16px;
+ padding:25px;
+}
+.balance h1{font-size:38px;margin:12px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.small{color:#667085;font-size:13px}
+.transaction{
+ padding:14px 0;
+ border-bottom:1px solid #eee;
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+}
+.positive{color:green}
+.negative{color:#d33}
+.hidden{display:none}
+footer{text-align:center;color:#777;padding:25px}
+</style>
+</head>
+<body>
+
+<div class="demo">⚠ EDUCATIONAL DEMO — NOT A REAL BANK</div>
+
+<header>
+<h2>🏦 SALAAM SOMALIA BANK</h2>
+<p>Digital Banking Demo</p>
+</header>
+
+<div class="container">
+
+<section id="login" class="card">
+<h2>Welcome Back</h2>
+<p>Demo Account Login</p>
+<p class="small">Demo Password: 1234</p>
+<input id="password" type="password" placeholder="Enter demo password">
+<button onclick="login()">Login</button>
+<p id="loginMessage"></p>
+</section>
+
+<section id="dashboard" class="hidden">
+
+<div class="balance">
+<p>DEMO ACCOUNT BALANCE</p>
+<h1 id="balance">$5,000.00</h1>
+<p>Account: DEMO-0001</p>
+</div>
+
+<div class="grid" style="margin-top:18px">
+<div class="card">
+<h3>💰 Balance</h3>
+<p id="miniBalance">$5,000.00</p>
+</div>
+<div class="card">
+<h3>📋 Transactions</h3>
+<p id="count">0</p>
+</div>
+</div>
+
+<div class="card">
+<h2>💸 Send Money</h2>
+<p class="small">Demo transfer only — no real money moves.</p>
+<input id="receiver" placeholder="Receiver name">
+<input id="amount" type="number" placeholder="Amount ($)" min="1">
+<p class="small">Demo Transaction PIN: 0000</p>
+<input id="pin" type="password" placeholder="Enter demo PIN">
+<button onclick="sendMoney()">Send Demo Money</button>
+<p id="message"></p>
+</div>
+
+<div class="card">
+<h2>📜 Transaction History</h2>
+<div id="history">
+<p class="small">No transactions yet.</p>
+</div>
+</div>
+
+<button onclick="logout()" style="background:#a52a2a">Logout</button>
+
+</section>
+</div>
+
+<footer>
+SALAAM SOMALIA BANK DEMO<br>
+Educational project — Not affiliated with Salaam Bank.
+</footer>
+
+<script>
+let money=5000;
+let transactions=[];
+
+function login(){
+ let p=document.getElementById("password").value;
+ if(p==="1234"){
+ document.getElementById("login").classList.add("hidden");
+ document.getElementById("dashboard").classList.remove("hidden");
+ }else{
+ document.getElementById("loginMessage").textContent="Incorrect demo password.";
+ }
+}
+
+function update(){
+ let b="$"+money.toFixed(2);
+ document.getElementById("balance").textContent=b;
+ document.getElementById("miniBalance").textContent=b;
+ document.getElementById("count").textContent=transactions.length;
+ document.getElementById("history").innerHTML=
+ transactions.length?transactions.map(t=>
+ `<div class="transaction">
+ <span>${t.name}<br><small>${t.date}</small></span>
+ <strong class="negative">-$${t.amount.toFixed(2)}</strong>
+ </div>`).join(""):"<p class='small'>No transactions yet.</p>";
+}
+
+function sendMoney(){
+ let name=document.getElementById("receiver").value.trim();
+ let amount=Number(document.getElementById("amount").value);
+ let pin=document.getElementById("pin").value;
+ let msg=document.getElementById("message");
+
+ if(!name || !amount || amount<=0){
+ msg.textContent="Enter a valid name and amount.";
+ return;
+ }
+ if(pin!=="0000"){
+ msg.textContent="Incorrect demo PIN.";
+ return;
+ }
+ if(amount>money){
+ msg.textContent="Insufficient demo balance.";
+ return;
+ }
+
+ money-=amount;
+ transactions.unshift({
+ name:name,
+ amount:amount,
+ date:new Date().toLocaleString()
+ });
+ update();
+ msg.textContent="Demo transaction successful!";
+ document.getElementById("receiver").value="";
+ document.getElementById("amount").value="";
+ document.getElementById("pin").value="";
+}
+
+function logout(){
+ document.getElementById("dashboard").classList.add("hidden");
+ document.getElementById("login").classList.remove("hidden");
+ document.getElementById("password").value="";
+}
+</script>
+</body>
+</html>
