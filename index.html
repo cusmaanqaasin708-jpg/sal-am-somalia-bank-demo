@@ -1,296 +1,312 @@
 
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Salaam Somalia Bank - DEMO</title>
+<title>Football Champions</title>
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#f1f5f9;
- color:#172033;
+ margin:0;background:#071322;color:white;
+ font-family:Arial,sans-serif;text-align:center;
 }
-header{
- background:#073b35;
- color:white;
- padding:22px;
+header{padding:14px;background:#102b46}
+h1{margin:0;color:#42d9ff;font-size:25px}
+#score{font-size:27px;font-weight:bold;margin:12px}
+#game{
+ width:96%;max-width:900px;
+ display:block;margin:auto;
+ background:#168b45;border:4px solid white;
+ border-radius:8px;touch-action:none;
 }
-header h2{margin:0 0 8px}
-.demo{
- background:#fff1c2;
- color:#785400;
- text-align:center;
- padding:10px;
- font-weight:bold;
+.info{color:#b9d8e8;font-size:13px;margin:8px}
+.controls{
+ display:flex;justify-content:center;gap:35px;
+ align-items:center;margin:15px auto;
 }
-.container{max-width:850px;margin:25px auto;padding:16px}
-.card{
- background:white;
- padding:22px;
- border-radius:16px;
-
-<!DOCTYPE html>
-<html lang="so">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101b3c">
-<title>Cyber Ammaan — Tijaabo Waxbarasho</title>
-<style>
-:root {
- --navy:#101b3c;
- --blue:#2457d6;
- --paper:#f4f6ff;
- --ink:#17213b;
- --green:#16834a;
-}
-*{box-sizing:border-box}
-body{
- margin:0;
- background:#dce5ff;
- color:var(--ink);
- font-family:Arial,sans-serif;
-}
-header{
- background:linear-gradient(120deg,#101b3c,#244ca9);
- color:white;
- padding:22px 16px;
- text-align:center;
-}
-header h1{margin:5px 0;font-size:clamp(25px,6vw,38px)}
-header p{color:#dce8ff}
-.notice{
- background:#fff0bd;
- color:#664800;
- text-align:center;
- padding:12px;
- font-weight:800;
-}
-.wrap{max-width:1000px;margin:20px auto;padding:0 14px}
-.intro{
- background:white;
- border-radius:18px;
- padding:18px;
- margin-bottom:16px;
- box-shadow:0 8px 24px #14234b18;
-}
-.panels{
- display:grid;
- grid-template-columns:repeat(2,minmax(0,1fr));
- gap:14px;
-}
-.panel{
- background:white;
- border:3px solid #17213b;
- border-radius:18px;
- overflow:hidden;
- box-shadow:0 7px 18px #14234b20;
-}
-.panelhead{
- background:#101b3c;
- color:white;
- font-weight:800;
- padding:12px;
- font-size:17px;
-}
-.art{
- min-height:145px;
- display:grid;
- place-items:center;
- background:linear-gradient(135deg,#dce7ff,#a9c3ff);
- font-size:60px;
-}
-.content{padding:16px}
-.bubble{
- background:#f0f4ff;
- border:2px solid #cad7ff;
- border-radius:14px;
- padding:13px;
- font-weight:700;
- line-height:1.45;
-}
+.pad{display:grid;grid-template-columns:repeat(3,55px);gap:5px}
 button{
- border:0;
- border-radius:10px;
- padding:12px 15px;
- background:#2457d6;
- color:white;
- font-size:15px;
- font-weight:800;
- cursor:pointer;
- margin-top:10px;
+ background:#087eb9;color:white;border:0;
+ padding:15px;border-radius:12px;
+ font-weight:bold;font-size:17px;
 }
-button.secondary{background:#e8edff;color:#18336e}
-button.green{background:#16834a}
-.result{
- margin-top:10px;
- padding:11px;
- border-radius:10px;
- background:#e9f7ef;
- color:#145b35;
- display:none;
- line-height:1.45;
-}
-ul{padding-left:21px;line-height:1.7}
-.checks{
- background:#eaf8ed;
- border:2px solid #a8dfb9;
- border-radius:16px;
- padding:16px;
- margin-top:16px;
-}
-footer{text-align:center;padding:25px;color:#46516b}
-@media(max-width:650px){
- .panels{grid-template-columns:1fr}
- .art{min-height:120px}
-}
+button:active{background:#28c9ff}
+.shoot{background:#e34b34;width:90px;height:65px}
+#start{background:#13a66a;margin:10px;padding:14px 35px}
 </style>
 </head>
-
 <body>
 
-<div class="notice">
-⚠️ TANI WAA TIJAABO WAXBARASHO — MA AHA BANGI DHAB AH
-</div>
-
 <header>
-<div style="font-size:35px">🛡️</div>
-<h1>CYBER AMMAAN</h1>
-<p>Baro sida loo garto farriimaha khiyaanada ah</p>
+<h1>⚽ FOOTBALL CHAMPIONS</h1>
+<div class="info">ULTIMATE FOOTBALL EXPERIENCE</div>
 </header>
 
-<main class="wrap">
+<div id="score">BLUE 0 - 0 RED</div>
 
-<section class="intro">
-<h2>Sheeko tijaabo ah: Abaalmarin been ah</h2>
-<p>
-Akhriso lixda qaybood. Riix badhamada si aad u aragto casharrada.
-Boggan ma weydiisanayo PIN, password, telefoon ama xog bangi.
-</p>
-</section>
+<canvas id="game" width="900" height="500"></canvas>
 
-<section class="panels">
+<div class="info" id="status">Press START to play!</div>
+<button id="start" onclick="startGame()">▶ START MATCH</button>
 
-<article class="panel">
-<div class="panelhead">1. Farriin lama filaan ah</div>
-<div class="art">📱😮</div>
-<div class="content">
-<div class="bubble">
-“Hambalyo! Waxaad ku guulaysatay abaalmarin $1,000 ah.
-Riix si aad u qaadato!”
+<div class="controls">
+ <div class="pad">
+  <span></span>
+  <button data-key="up">▲</button>
+  <span></span>
+  <button data-key="left">◀</button>
+  <button data-key="down">▼</button>
+  <button data-key="right">▶</button>
+ </div>
+ <button class="shoot" data-key="shoot">SHOOT ⚽</button>
 </div>
-<p><b>Su'aal:</b> Maxaa shaki gelinaya farriintan?</p>
-<button onclick="show('r1')">Eeg jawaabta</button>
-<div class="result" id="r1">
-Abaalmarin aanad filayn, degdegsiin, iyo ballanqaad lacag badan waa calaamado digniin ah.
-</div>
-</div>
-</article>
 
-<article class="panel">
-<div class="panelhead">2. Link aan la hubin</div>
-<div class="art">🔗⚠️</div>
-<div class="content">
-<div class="bubble">
-Link-ga tijaabada: <b>example.invalid/prize</b><br>
-Ha furin link aan la hubin.
+<div class="info">
+Keyboard: Arrow keys / WASD | Space: Shoot
 </div>
-<button class="secondary" onclick="show('r2')">Maxaan sameeyaa?</button>
-<div class="result" id="r2">
-Ha riixin. Hubi cidda soo dirtay adigoo adeegsanaya app ama website rasmi ah oo aad adigu taqaan.
-</div>
-</div>
-</article>
-
-<article class="panel">
-<div class="panelhead">3. Bog xog kaa dalbanaya</div>
-<div class="art">🕵️‍♂️💻</div>
-<div class="content">
-<div class="bubble">
-Bog been-abuur ah wuxuu isku dayi karaa inuu kaa helo xog sir ah.
-</div>
-<p><b>Ogow:</b> Simulator-kan ma laha meel lagu geliyo PIN ama password.</p>
-<button onclick="show('r3')">Baro khatarta</button>
-<div class="result" id="r3">
-Waligaa ha siin qof ama link aanad hubin PIN, password, OTP ama xogta akoonkaaga.
-</div>
-</div>
-</article>
-
-<article class="panel">
-<div class="panelhead">4. Iska ilaali khasaaraha</div>
-<div class="art">🚫💸</div>
-<div class="content">
-<div class="bubble">
-Qof ayaa ku leh: “Hadda xaqiiji si lacagta laguu siiyo.”
-</div>
-<button onclick="show('r4')">Tallaabada saxda ah</button>
-<div class="result" id="r4">
-Jooji wada hadalka, ha dirin lacag, hana bixin koodh xaqiijin. La xiriir adeegga rasmiga ah.
-</div>
-</div>
-</article>
-
-<article class="panel">
-<div class="panelhead">5. Haddii aad link taabatay</div>
-<div class="art">😟📲</div>
-<div class="content">
-<div class="bubble">
-“Waxaan taabtay link aanan hubin. Maxaan sameeyaa?”
-</div>
-<button onclick="show('r5')">Eeg tallaabooyinka</button>
-<div class="result" id="r5">
-Xir bogga. Ha gelin wax xog ah. Haddii aad xog sir ah gelisay, isla markiiba beddel password-ka oo la xiriir bangiga ama adeegga rasmiga ah.
-</div>
-</div>
-</article>
-
-<article class="panel">
-<div class="panelhead">6. Sida loo badbaado</div>
-<div class="art">🛡️🌐</div>
-<div class="content">
-<ul>
-<li>Hubi cidda farriinta soo dirtay.</li>
-<li>Ha riixin link shaki leh.</li>
-<li>Ha wadaagin PIN, OTP ama password.</li>
-<li>Isticmaal app-ka rasmiga ah.</li>
-<li>Daar xaqiijinta laba-tallaabo.</li>
-</ul>
-<button class="green" onclick="show('r6')">Dhammee casharka</button>
-<div class="result" id="r6">
-Hambalyo! Waxaad dhammaysay casharka wacyigelinta amniga internetka. Xogtaadu halkan laguma kaydinayo.
-</div>
-</div>
-</article>
-
-</section>
-
-<section class="checks">
-<h2>✅ Xusuusnow</h2>
-<p>
-Bangiyada iyo adeegyada lacagtu kuma weydiinayaan inaad PIN ama OTP ku bixiso link abaalmarin ah.
-Marka aad shaki qabto, ka xaqiiji kanaalka rasmiga ah.
-</p>
-</section>
-
-</main>
-
-<footer>
-CYBER AMMAAN • Mashruuc waxbarasho oo tijaabo ah
-<br>
-Ma aha Salaam Bank ama adeeg maaliyadeed.
-</footer>
 
 <script>
-function show(id){
- const box=document.getElementById(id);
- box.style.display=
- box.style.display==="block"?"none":"block";
-}
-</script>
+const canvas=document.getElementById("game");
+const ctx=canvas.getContext("2d");
 
+let scoreBlue=0,scoreRed=0;
+let playing=false;
+let keys={};
+let time=90;
+let lastTime=0;
+let frame=0;
+
+const player={
+ x:220,y:250,r:17,speed:3.5,
+ color:"#168cff",vx:0,vy:0
+};
+
+const enemy={
+ x:680,y:250,r:17,speed:2.1,
+ color:"#ff3434"
+};
+
+const ball={
+ x:450,y:250,r:9,vx:0,vy:0
+};
+
+function field(){
+ ctx.fillStyle="#168b45";
+ ctx.fillRect(0,0,900,500);
+
+ for(let i=0;i<9;i++){
+  ctx.fillStyle=i%2?"#168b45":"#198f4b";
+  ctx.fillRect(i*100,0,100,500);
+ }
+
+ ctx.strokeStyle="white";
+ ctx.lineWidth=4;
+ ctx.strokeRect(12,12,876,476);
+
+ ctx.beginPath();
+ ctx.moveTo(450,12);
+ ctx.lineTo(450,488);
+ ctx.stroke();
+
+ ctx.beginPath();
+ ctx.arc(450,250,75,0,Math.PI*2);
+ ctx.stroke();
+
+ ctx.strokeRect(12,145,110,210);
+ ctx.strokeRect(778,145,110,210);
+
+ ctx.fillStyle="#fff";
+ ctx.fillRect(0,195,12,110);
+ ctx.fillRect(888,195,12,110);
+}
+
+function drawPlayer(p){
+ ctx.beginPath();
+ ctx.fillStyle=p.color;
+ ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ ctx.fill();
+
+ ctx.strokeStyle="white";
+ ctx.lineWidth=3;
+ ctx.stroke();
+
+ ctx.fillStyle="white";
+ ctx.font="bold 12px Arial";
+ ctx.textAlign="center";
+ ctx.fillText(p===player?"10":"9",p.x,p.y+4);
+}
+
+function drawBall(){
+ ctx.beginPath();
+ ctx.fillStyle="white";
+ ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);
+ ctx.fill();
+
+ ctx.strokeStyle="#111";
+ ctx.lineWidth=2;
+ ctx.stroke();
+}
+
+function resetBall(direction){
+ ball.x=450;ball.y=250;
+ ball.vx=direction||0;
+ ball.vy=0;
+ player.x=220;player.y=250;
+ enemy.x=680;enemy.y=250;
+}
+
+function update(){
+ if(!playing)return;
+
+ player.vx=0;player.vy=0;
+
+ if(keys.left)player.vx=-player.speed;
+ if(keys.right)player.vx=player.speed;
+ if(keys.up)player.vy=-player.speed;
+ if(keys.down)player.vy=player.speed;
+
+ player.x+=player.vx;
+ player.y+=player.vy;
+
+ player.x=Math.max(25,Math.min(875,player.x));
+ player.y=Math.max(30,Math.min(470,player.y));
+
+ // Opponent AI
+ let dx=ball.x-enemy.x;
+ let dy=ball.y-enemy.y;
+ let d=Math.hypot(dx,dy)||1;
+
+ enemy.x+=dx/d*enemy.speed;
+ enemy.y+=dy/d*enemy.speed;
+
+ // Player and ball collision
+ let px=ball.x-player.x;
+ let py=ball.y-player.y;
+ let pd=Math.hypot(px,py)||1;
+
+ if(pd<player.r+ball.r){
+  ball.vx=px/pd*5;
+  ball.vy=py/pd*5;
+ }
+
+ // Opponent and ball collision
+ let ex=ball.x-enemy.x;
+ let ey=ball.y-enemy.y;
+ let ed=Math.hypot(ex,ey)||1;
+
+ if(ed<enemy.r+ball.r){
+  ball.vx=ex/ed*4;
+  ball.vy=ey/ed*4;
+ }
+
+ // Shoot
+ if(keys.shoot){
+  if(pd<65){
+   ball.vx=7;
+   ball.vy=(ball.y-player.y)*0.08;
+   keys.shoot=false;
+  }
+ }
+
+ // Ball movement
+ ball.x+=ball.vx;
+ ball.y+=ball.vy;
+ ball.vx*=0.985;
+ ball.vy*=0.985;
+
+ if(ball.y<22||ball.y>478)ball.vy*=-1;
+
+ // Goals
+ if(ball.x<5 && ball.y>195 && ball.y<305){
+  scoreRed++;
+  resetBall(0);
+ }
+ if(ball.x>895 && ball.y>195 && ball.y<305){
+  scoreBlue++;
+  resetBall(0);
+ }
+
+ ball.x=Math.max(5,Math.min(895,ball.x));
+
+ document.getElementById("score").textContent=
+ "BLUE "+scoreBlue+" - "+scoreRed+" RED";
+}
+
+function draw(){
+ ctx.clearRect(0,0,900,500);
+ field();
+ drawPlayer(player);
+ drawPlayer(enemy);
+ drawBall();
+}
+
+function loop(){
+ update();
+ draw();
+ requestAnimationFrame(loop);
+}
+
+function startGame(){
+ scoreBlue=0;
+ scoreRed=0;
+ time=90;
+ resetBall(0);
+ playing=true;
+
+ document.getElementById("status").textContent=
+ "MATCH STARTED! Score goals to win!";
+
+ document.getElementById("score").textContent=
+ "BLUE 0 - 0 RED";
+
+ clearInterval(window.clock);
+ window.clock=setInterval(()=>{
+  if(!playing)return;
+  time--;
+  document.getElementById("status").textContent=
+  "MATCH TIME: "+time+" seconds";
+  if(time<=0){
+   playing=false;
+   document.getElementById("status").textContent=
+   scoreBlue>scoreRed?"🏆 BLUE WINS!":
+   scoreRed>scoreBlue?"🏆 RED WINS!":"🤝 DRAW!";
+   clearInterval(window.clock);
+  }
+ },1000);
+}
+
+// Keyboard
+document.addEventListener("keydown",e=>{
+ const k=e.key.toLowerCase();
+ if(k==="arrowup"||k==="w")keys.up=true;
+ if(k==="arrowdown"||k==="s")keys.down=true;
+ if(k==="arrowleft"||k==="a")keys.left=true;
+ if(k==="arrowright"||k==="d")keys.right=true;
+ if(k===" ")keys.shoot=true;
+});
+
+document.addEventListener("keyup",e=>{
+ const k=e.key.toLowerCase();
+ if(k==="arrowup"||k==="w")keys.up=false;
+ if(k==="arrowdown"||k==="s")keys.down=false;
+ if(k==="arrowleft"||k==="a")keys.left=false;
+ if(k==="arrowright"||k==="d")keys.right=false;
+});
+
+document.querySelectorAll("[data-key]").forEach(btn=>{
+ const k=btn.dataset.key;
+ btn.addEventListener("pointerdown",e=>{
+  e.preventDefault();
+  keys[k]=true;
+ });
+ ["pointerup","pointerleave","pointercancel"].forEach(event=>{
+  btn.addEventListener(event,()=>keys[k]=false);
+ });
+});
+
+loop();
+</script>
 </body>
 </html>
