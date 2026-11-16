@@ -31,180 +31,266 @@ header h2{margin:0 0 8px}
  background:white;
  padding:22px;
  border-radius:16px;
- margin-bottom:18px;
- box-shadow:0 3px 15px #0000000d;
+
+<!DOCTYPE html>
+<html lang="so">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101b3c">
+<title>Cyber Ammaan — Tijaabo Waxbarasho</title>
+<style>
+:root {
+ --navy:#101b3c;
+ --blue:#2457d6;
+ --paper:#f4f6ff;
+ --ink:#17213b;
+ --green:#16834a;
 }
-input{
- width:100%;
- padding:14px;
- margin:9px 0;
- border:1px solid #ccd5df;
- border-radius:9px;
- font-size:16px;
+*{box-sizing:border-box}
+body{
+ margin:0;
+ background:#dce5ff;
+ color:var(--ink);
+ font-family:Arial,sans-serif;
+}
+header{
+ background:linear-gradient(120deg,#101b3c,#244ca9);
+ color:white;
+ padding:22px 16px;
+ text-align:center;
+}
+header h1{margin:5px 0;font-size:clamp(25px,6vw,38px)}
+header p{color:#dce8ff}
+.notice{
+ background:#fff0bd;
+ color:#664800;
+ text-align:center;
+ padding:12px;
+ font-weight:800;
+}
+.wrap{max-width:1000px;margin:20px auto;padding:0 14px}
+.intro{
+ background:white;
+ border-radius:18px;
+ padding:18px;
+ margin-bottom:16px;
+ box-shadow:0 8px 24px #14234b18;
+}
+.panels{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:14px;
+}
+.panel{
+ background:white;
+ border:3px solid #17213b;
+ border-radius:18px;
+ overflow:hidden;
+ box-shadow:0 7px 18px #14234b20;
+}
+.panelhead{
+ background:#101b3c;
+ color:white;
+ font-weight:800;
+ padding:12px;
+ font-size:17px;
+}
+.art{
+ min-height:145px;
+ display:grid;
+ place-items:center;
+ background:linear-gradient(135deg,#dce7ff,#a9c3ff);
+ font-size:60px;
+}
+.content{padding:16px}
+.bubble{
+ background:#f0f4ff;
+ border:2px solid #cad7ff;
+ border-radius:14px;
+ padding:13px;
+ font-weight:700;
+ line-height:1.45;
 }
 button{
- background:#087b61;
- color:white;
  border:0;
- padding:13px 18px;
- border-radius:9px;
- font-size:15px;
- cursor:pointer;
-}
-button:hover{background:#075d4b}
-.balance{
- background:#073b35;
+ border-radius:10px;
+ padding:12px 15px;
+ background:#2457d6;
  color:white;
+ font-size:15px;
+ font-weight:800;
+ cursor:pointer;
+ margin-top:10px;
+}
+button.secondary{background:#e8edff;color:#18336e}
+button.green{background:#16834a}
+.result{
+ margin-top:10px;
+ padding:11px;
+ border-radius:10px;
+ background:#e9f7ef;
+ color:#145b35;
+ display:none;
+ line-height:1.45;
+}
+ul{padding-left:21px;line-height:1.7}
+.checks{
+ background:#eaf8ed;
+ border:2px solid #a8dfb9;
  border-radius:16px;
- padding:25px;
+ padding:16px;
+ margin-top:16px;
 }
-.balance h1{font-size:38px;margin:12px 0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.small{color:#667085;font-size:13px}
-.transaction{
- padding:14px 0;
- border-bottom:1px solid #eee;
- display:flex;
- justify-content:space-between;
- gap:10px;
+footer{text-align:center;padding:25px;color:#46516b}
+@media(max-width:650px){
+ .panels{grid-template-columns:1fr}
+ .art{min-height:120px}
 }
-.positive{color:green}
-.negative{color:#d33}
-.hidden{display:none}
-footer{text-align:center;color:#777;padding:25px}
 </style>
 </head>
+
 <body>
 
-<div class="demo">⚠ EDUCATIONAL DEMO — NOT A REAL BANK</div>
+<div class="notice">
+⚠️ TANI WAA TIJAABO WAXBARASHO — MA AHA BANGI DHAB AH
+</div>
 
 <header>
-<h2>🏦 SALAAM SOMALIA BANK</h2>
-<p>Digital Banking Demo</p>
+<div style="font-size:35px">🛡️</div>
+<h1>CYBER AMMAAN</h1>
+<p>Baro sida loo garto farriimaha khiyaanada ah</p>
 </header>
 
-<div class="container">
+<main class="wrap">
 
-<section id="login" class="card">
-<h2>Welcome Back</h2>
-<p>Demo Account Login</p>
-<p class="small">Demo Password: 1234</p>
-<input id="password" type="password" placeholder="Enter demo password">
-<button onclick="login()">Login</button>
-<p id="loginMessage"></p>
+<section class="intro">
+<h2>Sheeko tijaabo ah: Abaalmarin been ah</h2>
+<p>
+Akhriso lixda qaybood. Riix badhamada si aad u aragto casharrada.
+Boggan ma weydiisanayo PIN, password, telefoon ama xog bangi.
+</p>
 </section>
 
-<section id="dashboard" class="hidden">
+<section class="panels">
 
-<div class="balance">
-<p>DEMO ACCOUNT BALANCE</p>
-<h1 id="balance">$5,000.00</h1>
-<p>Account: DEMO-0001</p>
+<article class="panel">
+<div class="panelhead">1. Farriin lama filaan ah</div>
+<div class="art">📱😮</div>
+<div class="content">
+<div class="bubble">
+“Hambalyo! Waxaad ku guulaysatay abaalmarin $1,000 ah.
+Riix si aad u qaadato!”
 </div>
+<p><b>Su'aal:</b> Maxaa shaki gelinaya farriintan?</p>
+<button onclick="show('r1')">Eeg jawaabta</button>
+<div class="result" id="r1">
+Abaalmarin aanad filayn, degdegsiin, iyo ballanqaad lacag badan waa calaamado digniin ah.
+</div>
+</div>
+</article>
 
-<div class="grid" style="margin-top:18px">
-<div class="card">
-<h3>💰 Balance</h3>
-<p id="miniBalance">$5,000.00</p>
+<article class="panel">
+<div class="panelhead">2. Link aan la hubin</div>
+<div class="art">🔗⚠️</div>
+<div class="content">
+<div class="bubble">
+Link-ga tijaabada: <b>example.invalid/prize</b><br>
+Ha furin link aan la hubin.
 </div>
-<div class="card">
-<h3>📋 Transactions</h3>
-<p id="count">0</p>
+<button class="secondary" onclick="show('r2')">Maxaan sameeyaa?</button>
+<div class="result" id="r2">
+Ha riixin. Hubi cidda soo dirtay adigoo adeegsanaya app ama website rasmi ah oo aad adigu taqaan.
 </div>
 </div>
+</article>
 
-<div class="card">
-<h2>💸 Send Money</h2>
-<p class="small">Demo transfer only — no real money moves.</p>
-<input id="receiver" placeholder="Receiver name">
-<input id="amount" type="number" placeholder="Amount ($)" min="1">
-<p class="small">Demo Transaction PIN: 0000</p>
-<input id="pin" type="password" placeholder="Enter demo PIN">
-<button onclick="sendMoney()">Send Demo Money</button>
-<p id="message"></p>
+<article class="panel">
+<div class="panelhead">3. Bog xog kaa dalbanaya</div>
+<div class="art">🕵️‍♂️💻</div>
+<div class="content">
+<div class="bubble">
+Bog been-abuur ah wuxuu isku dayi karaa inuu kaa helo xog sir ah.
 </div>
+<p><b>Ogow:</b> Simulator-kan ma laha meel lagu geliyo PIN ama password.</p>
+<button onclick="show('r3')">Baro khatarta</button>
+<div class="result" id="r3">
+Waligaa ha siin qof ama link aanad hubin PIN, password, OTP ama xogta akoonkaaga.
+</div>
+</div>
+</article>
 
-<div class="card">
-<h2>📜 Transaction History</h2>
-<div id="history">
-<p class="small">No transactions yet.</p>
+<article class="panel">
+<div class="panelhead">4. Iska ilaali khasaaraha</div>
+<div class="art">🚫💸</div>
+<div class="content">
+<div class="bubble">
+Qof ayaa ku leh: “Hadda xaqiiji si lacagta laguu siiyo.”
+</div>
+<button onclick="show('r4')">Tallaabada saxda ah</button>
+<div class="result" id="r4">
+Jooji wada hadalka, ha dirin lacag, hana bixin koodh xaqiijin. La xiriir adeegga rasmiga ah.
 </div>
 </div>
+</article>
 
-<button onclick="logout()" style="background:#a52a2a">Logout</button>
+<article class="panel">
+<div class="panelhead">5. Haddii aad link taabatay</div>
+<div class="art">😟📲</div>
+<div class="content">
+<div class="bubble">
+“Waxaan taabtay link aanan hubin. Maxaan sameeyaa?”
+</div>
+<button onclick="show('r5')">Eeg tallaabooyinka</button>
+<div class="result" id="r5">
+Xir bogga. Ha gelin wax xog ah. Haddii aad xog sir ah gelisay, isla markiiba beddel password-ka oo la xiriir bangiga ama adeegga rasmiga ah.
+</div>
+</div>
+</article>
+
+<article class="panel">
+<div class="panelhead">6. Sida loo badbaado</div>
+<div class="art">🛡️🌐</div>
+<div class="content">
+<ul>
+<li>Hubi cidda farriinta soo dirtay.</li>
+<li>Ha riixin link shaki leh.</li>
+<li>Ha wadaagin PIN, OTP ama password.</li>
+<li>Isticmaal app-ka rasmiga ah.</li>
+<li>Daar xaqiijinta laba-tallaabo.</li>
+</ul>
+<button class="green" onclick="show('r6')">Dhammee casharka</button>
+<div class="result" id="r6">
+Hambalyo! Waxaad dhammaysay casharka wacyigelinta amniga internetka. Xogtaadu halkan laguma kaydinayo.
+</div>
+</div>
+</article>
 
 </section>
-</div>
+
+<section class="checks">
+<h2>✅ Xusuusnow</h2>
+<p>
+Bangiyada iyo adeegyada lacagtu kuma weydiinayaan inaad PIN ama OTP ku bixiso link abaalmarin ah.
+Marka aad shaki qabto, ka xaqiiji kanaalka rasmiga ah.
+</p>
+</section>
+
+</main>
 
 <footer>
-SALAAM SOMALIA BANK DEMO<br>
-Educational project — Not affiliated with Salaam Bank.
+CYBER AMMAAN • Mashruuc waxbarasho oo tijaabo ah
+<br>
+Ma aha Salaam Bank ama adeeg maaliyadeed.
 </footer>
 
 <script>
-let money=5000;
-let transactions=[];
-
-function login(){
- let p=document.getElementById("password").value;
- if(p==="1234"){
- document.getElementById("login").classList.add("hidden");
- document.getElementById("dashboard").classList.remove("hidden");
- }else{
- document.getElementById("loginMessage").textContent="Incorrect demo password.";
- }
-}
-
-function update(){
- let b="$"+money.toFixed(2);
- document.getElementById("balance").textContent=b;
- document.getElementById("miniBalance").textContent=b;
- document.getElementById("count").textContent=transactions.length;
- document.getElementById("history").innerHTML=
- transactions.length?transactions.map(t=>
- `<div class="transaction">
- <span>${t.name}<br><small>${t.date}</small></span>
- <strong class="negative">-$${t.amount.toFixed(2)}</strong>
- </div>`).join(""):"<p class='small'>No transactions yet.</p>";
-}
-
-function sendMoney(){
- let name=document.getElementById("receiver").value.trim();
- let amount=Number(document.getElementById("amount").value);
- let pin=document.getElementById("pin").value;
- let msg=document.getElementById("message");
-
- if(!name || !amount || amount<=0){
- msg.textContent="Enter a valid name and amount.";
- return;
- }
- if(pin!=="0000"){
- msg.textContent="Incorrect demo PIN.";
- return;
- }
- if(amount>money){
- msg.textContent="Insufficient demo balance.";
- return;
- }
-
- money-=amount;
- transactions.unshift({
- name:name,
- amount:amount,
- date:new Date().toLocaleString()
- });
- update();
- msg.textContent="Demo transaction successful!";
- document.getElementById("receiver").value="";
- document.getElementById("amount").value="";
- document.getElementById("pin").value="";
-}
-
-function logout(){
- document.getElementById("dashboard").classList.add("hidden");
- document.getElementById("login").classList.remove("hidden");
- document.getElementById("password").value="";
+function show(id){
+ const box=document.getElementById(id);
+ box.style.display=
+ box.style.display==="block"?"none":"block";
 }
 </script>
+
 </body>
 </html>
